@@ -1,0 +1,168 @@
+/* GENERAL STYLE */
+
+body{
+margin:0;
+font-family: Arial, sans-serif;
+background-image:url("images/bg.jpg");
+background-size:cover;
+background-attachment:fixed;
+color:#333;
+}
+
+/* COLORS */
+
+:root{
+--maroon:#7A1C2E;
+--pastel-blue:#A7C7E7;
+}
+
+/* HEADER */
+
+header{
+position:sticky;
+top:0;
+background:var(--maroon);
+color:white;
+padding:15px;
+text-align:center;
+z-index:1000;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+nav a:hover{
+color:var(--pastel-blue);
+}
+
+/* LAYOUT */
+
+.container{
+display:flex;
+}
+
+/* LEFT SIDEBAR */
+
+.sidebar{
+width:250px;
+background:var(--pastel-blue);
+padding:20px;
+text-align:center;
+min-height:100vh;
+}
+
+.profile{
+width:150px;
+border-radius:50%;
+}
+
+/* MAIN CONTENT */
+
+.content{
+flex:1;
+padding:30px;
+background:white;
+}
+
+/* ABOUT ME PSEUDO ELEMENT */
+
+.about p::first-letter{
+font-size:35px;
+color:var(--maroon);
+font-weight:bold;
+}
+
+/* LINKS */
+
+a{
+text-decoration:none;
+color:var(--maroon);
+}
+
+/* TABLE */
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th, td{
+border:1px solid #ccc;
+padding:10px;
+text-align:center;
+}
+
+tr:nth-child(odd){
+background:#f4f4f4;
+}
+
+tr:nth-child(odd):hover{
+background:#ddd;
+}
+
+tr:nth-child(even):hover{
+background:#cce5ff;
+}
+
+/* FORM */
+
+form{
+max-width:500px;
+}
+
+input, textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
+button{
+background:var(--maroon);
+color:white;
+border:none;
+padding:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:var(--pastel-blue);
+color:black;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:15px;
+background:var(--maroon);
+color:white;
+margin-top:20px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.container{
+flex-direction:column;
+}
+
+.sidebar{
+width:100%;
+}
+
+}
