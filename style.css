@@ -3,6 +3,11 @@
     --pastel-blue: #A7C7E7;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -20,24 +25,6 @@ header {
     padding: 15px;
     text-align: center;
     z-index: 1000;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav a {
-    color: white;
-    margin: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: var(--pastel-blue);
 }
 
 .container {
@@ -60,7 +47,7 @@ nav a:hover {
 .content {
     flex: 1;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.85);
 }
 
 .card-section {
@@ -69,7 +56,7 @@ nav a:hover {
     padding: 25px;
     margin-bottom: 25px;
     border-left: 8px solid var(--maroon);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .section-header {
@@ -95,7 +82,7 @@ nav a:hover {
     margin-bottom: 12px;
     padding: 8px 15px 8px 35px;
     position: relative;
-    background-color: #f0f7f9;
+    background-color: #f9f9f9;
     border-radius: 10px;
     transition: 0.3s;
 }
@@ -123,9 +110,8 @@ nav a:hover {
     padding: 8px 15px;
     border-radius: 20px;
     font-weight: bold;
-    margin: 0 5px;
+    margin: 5px;
     transition: 0.3s;
-    font-size: 0.9em;
     display: inline-block;
 }
 
@@ -134,70 +120,11 @@ nav a:hover {
     color: var(--maroon);
 }
 
-.about p::first-letter {
-    font-size: 35px;
-    color: var(--maroon);
-    font-weight: bold;
-}
-
-a {
-    text-decoration: none;
-    color: var(--maroon);
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-}
-
-tr:nth-child(odd) {
-    background: #f4f4f4;
-}
-
-tr:nth-child(odd):hover {
-    background: #ddd;
-}
-
-tr:nth-child(even):hover {
-    background: #cce5ff;
-}
-
-form {
-    max-width: 500px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-}
-
-button {
-    background: var(--maroon);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: var(--pastel-blue);
-    color: black;
-}
-
 footer {
     text-align: center;
     padding: 15px;
     background: var(--maroon);
     color: white;
-    margin-top: 20px;
 }
 
 @media(max-width:768px) {
