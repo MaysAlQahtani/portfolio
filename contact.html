@@ -1,68 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Contact</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
 <header>
-
-<h1>Contact Me</h1>
-
-<nav>
-<a href="index.html">Home</a>
-<a href="schedule.html">Schedule</a>
-<a href="contact.html">Contact</a>
-</nav>
-
+    <div class="header-container">
+        <h1>Contact Me</h1>
+        <nav class="jump-links">
+            <a href="index.html">Home</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
 </header>
-
 <div class="container">
-
-<aside class="sidebar">
-
-<img src="images/profile.jpg" class="profile">
-
-</aside>
-
-<main class="content">
-
-<h2>Send Message</h2>
-
-<form action="https://webhook.site/YOUR-ID" method="POST">
-
-<label>Name</label>
-<input type="text" required>
-
-<label>Email</label>
-<input type="email">
-
-<label>Message</label>
-<textarea rows="5"></textarea>
-
-<label>Message Type</label>
-
-<input type="radio" name="type"> Question
-<input type="radio" name="type"> Feedback
-
-<br><br>
-
-<button type="submit">Send</button>
-
-</form>
-
-</main>
-
+    <aside class="sidebar"><img src="images/profile.jpg" class="profile"></aside>
+    <main class="content">
+        <section class="card-section">
+            <div class="section-header"><span class="section-icon">📩</span><h2>Send Message</h2></div>
+            <form action="https://webhook.site/YOUR-ID" method="POST">
+                <label>Name</label><input type="text" placeholder="Your Name" required>
+                <label>Email</label><input type="email" placeholder="Your Email">
+                <label>Message Type</label>
+                <div style="background:#f0f7f9; padding:10px; border-radius:8px; margin-top:5px;">
+                    <input type="radio" name="type" value="Question"> Question
+                    <input type="radio" name="type" value="Feedback"> Feedback
+                </div>
+                <label>Message</label><textarea rows="5" placeholder="Your message here..."></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
 </div>
-
-<footer>
-
-<p>© 2025</p>
-
-</footer>
-
+<footer><p>© 2026 My Portfolio</p></footer>
 </body>
-
 </html>
