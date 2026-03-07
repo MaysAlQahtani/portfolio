@@ -3,6 +3,64 @@
 <head>
     <title>Mays's CV</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f3f0f7; /* خلفية فاتحة جداً */
+            font-family: sans-serif;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+       
+        .card-section {
+            background-color: #fff; 
+            border-radius: 15px; 
+            padding: 20px;
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
+        }
+
+       
+        .section-header {
+            display: flex;
+            align-items: center;
+            color: #7A1C2E; 
+            margin-bottom: 15px;
+        }
+
+        .section-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+       
+        .card-section ul {
+            list-style-type: none; 
+            padding-left: 0;
+        }
+
+        .card-section li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px; 
+        }
+
+        .card-section li::before {
+            content: '🗝'; 
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .projects li {
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,12 +91,14 @@
 
     <main class="content">
 
-        <div class="jump-link">
-            <a href="#projects">Projects</a>
+        <div class="jump-links">
+            <a href="#about">About</a> | <a href="#education">Education</a> | <a href="#skills">Skills</a> | <a href="#projects">Projects</a>
         </div>
 
-        <h2 id="about">About Me</h2>
-        <section class="about">
+        <section id="about" class="card-section">
+            <div class="section-header">
+                <span class="section-icon">👩‍💻</span> <h2>About Me</h2>
+            </div>
             <p>
                 I am an Information Technology student with a deep-seated passion for the future of tech.
                 My core interests lie at the intersection of Web Development and Artificial Intelligence, where I enjoy building intuitive digital experiences and exploring how AI can solve real-world problems.
@@ -46,18 +106,31 @@
             </p>
         </section>
 
-        <h2 id="skills">Skills</h2>
-        <section class="skills">
+        <section id="education" class="card-section">
+            <div class="section-header">
+                <span class="section-icon">🎓</span> <h2>Education</h2>
+            </div>
+            <p><strong>Bachelor of IT</strong> — King Abdulaziz University (2022–2026)</p>
+            <p>Current GPA: 4.74/5.0</p>
+        </section>
+
+        <section id="skills" class="card-section">
+            <div class="section-header">
+                <span class="section-icon">🛠️</span> <h2>Skills</h2>
+            </div>
             <ul>
-                <li><strong>Programming:</strong> Java (Multithreading, RSA Algorithm), CSS/HTML.</li>
-                <li><strong>Web Development:</strong> UI/UX Basics.</li>
-                <li><strong>Project Management:</strong> Agile & Scrum Methodologies.</li>
-                <li><strong>AI Interest:</strong> AI Content Detection, Generative AI.</li>
+                <li>HTML & CSS</li>
+                <li>JavaScript basics · React (learning)</li>
+                <li>Python, SQL, Java</li>
+                <li>UI/UX principles · Figma</li>
+                <li>Project Management (Agile & Scrum)</li>
             </ul>
         </section>
 
-        <h2 id="projects">Projects</h2>
-        <section class="projects">
+        <section id="projects" class="card-section projects">
+            <div class="section-header">
+                <span class="section-icon">💻</span> <h2>My Projects</h2>
+            </div>
             <ul>
                 <li>Blood bank system</li>
                 <li>Cinema system</li>
@@ -76,6 +149,9 @@
 <footer>
     <p>© 2026 My Portfolio</p>
 </footer>
+
+</body>
+</html>
 
 </body>
 </html>
