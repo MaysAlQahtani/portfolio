@@ -1,157 +1,61 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Mays's CV</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            background-color: #f3f0f7; /* خلفية فاتحة جداً */
-            font-family: sans-serif;
-            color: #333;
-        }
+<main class="content">
 
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-        }
+    <div class="jump-links">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+    </div>
 
-       
-        .card-section {
-            background-color: #fff; 
-            border-radius: 15px; 
-            padding: 20px;
-            margin-bottom: 20px; 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
-        }
-
-       
-        .section-header {
-            display: flex;
-            align-items: center;
-            color: #7A1C2E; 
-            margin-bottom: 15px;
-        }
-
-        .section-icon {
-            font-size: 1.5em;
-            margin-right: 10px;
-        }
-
-       
-        .card-section ul {
-            list-style-type: none; 
-            padding-left: 0;
-        }
-
-        .card-section li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 25px; 
-        }
-
-        .card-section li::before {
-            content: '🗝'; 
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .projects li {
-            font-weight: bold;
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <h1>My Portfolio</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="schedule.html">Schedule</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
-
-<div class="container">
-
-    <aside class="sidebar">
-        <img src="images/profile.jpg" class="profile" alt="Profile Picture">
-
-        <h3>Contact</h3>
-        <p><a href="mailto:maysalqahtani@gmail.com">Email</a></p>
-        <p><a href="tel:+966553243057">Phone</a></p>
-
-        <h3>Social</h3>
-        <a href="https://x.com/maqh41" target="_blank">X</a>
-        <br>
-        <a href="https://www.linkedin.com/in/mays-alqahtani-492a261a1/" target="_blank">LinkedIn</a>
-    </aside>
-
-    <main class="content">
-
-        <div class="jump-links">
-            <a href="#about">About</a> | <a href="#education">Education</a> | <a href="#skills">Skills</a> | <a href="#projects">Projects</a>
+    <section id="about" class="card-section">
+        <div class="section-header">
+            <span class="section-icon">👩‍💻</span>
+            <h2>About Me</h2>
         </div>
+        <p>
+            I am an Information Technology student with a deep-seated passion for the future of tech.
+            My core interests lie at the intersection of Web Development and Artificial Intelligence, where I enjoy building intuitive digital experiences and exploring how AI can solve real-world problems.
+            My journey is driven by a commitment to continuous learning, and I aspire to become a Professional Full-Stack Developer who creates innovative, high-impact solutions.
+        </p>
+    </section>
 
-        <section id="about" class="card-section">
-            <div class="section-header">
-                <span class="section-icon">👩‍💻</span> <h2>About Me</h2>
-            </div>
-            <p>
-                I am an Information Technology student with a deep-seated passion for the future of tech.
-                My core interests lie at the intersection of Web Development and Artificial Intelligence, where I enjoy building intuitive digital experiences and exploring how AI can solve real-world problems.
-                My journey is driven by a commitment to continuous learning, and I aspire to become a Professional Full-Stack Developer who creates innovative, high-impact solutions.
-            </p>
-        </section>
+    <section id="education" class="card-section">
+        <div class="section-header">
+            <span class="section-icon">🎓</span>
+            <h2>Education</h2>
+        </div>
+        <p><strong>Bachelor of IT</strong> — King Abdulaziz University (2022–2026)</p>
+        <p>Current GPA: 4.74/5.0</p>
+    </section>
 
-        <section id="education" class="card-section">
-            <div class="section-header">
-                <span class="section-icon">🎓</span> <h2>Education</h2>
-            </div>
-            <p><strong>Bachelor of IT</strong> — King Abdulaziz University (2022–2026)</p>
-            <p>Current GPA: 4.74/5.0</p>
-        </section>
+    <section id="skills" class="card-section">
+        <div class="section-header">
+            <span class="section-icon">🛠️</span>
+            <h2>Skills</h2>
+        </div>
+        <ul>
+            <li>HTML & CSS</li>
+            <li>JavaScript basics · React (learning)</li>
+            <li>Python, SQL, Java</li>
+            <li>UI/UX principles · Figma</li>
+            <li>Project Management (Agile & Scrum)</li>
+        </ul>
+    </section>
 
-        <section id="skills" class="card-section">
-            <div class="section-header">
-                <span class="section-icon">🛠️</span> <h2>Skills</h2>
-            </div>
-            <ul>
-                <li>HTML & CSS</li>
-                <li>JavaScript basics · React (learning)</li>
-                <li>Python, SQL, Java</li>
-                <li>UI/UX principles · Figma</li>
-                <li>Project Management (Agile & Scrum)</li>
-            </ul>
-        </section>
+    <section id="projects" class="card-section">
+        <div class="section-header">
+            <span class="section-icon">💻</span>
+            <h2>My Projects</h2>
+        </div>
+        <ul>
+            <li>Blood bank system</li>
+            <li>Cinema system</li>
+            <li>Flower Shop Management</li>
+            <li>Squadra</li>
+            <li>Cyber security poster</li>
+            <li>Then & Now: Saudi Arabia's evolving cities</li>
+            <li>Feedback management application for Jeddah municipality</li>
+        </ul>
+    </section>
 
-        <section id="projects" class="card-section projects">
-            <div class="section-header">
-                <span class="section-icon">💻</span> <h2>My Projects</h2>
-            </div>
-            <ul>
-                <li>Blood bank system</li>
-                <li>Cinema system</li>
-                <li>Flower Shop Management</li>
-                <li>Squadra</li>
-                <li>Cyber security poster</li>
-                <li>Then & Now: Saudi Arabia's evolving cities</li>
-                <li>Feedback management application for Jeddah municipality</li>
-            </ul>
-        </section>
-
-    </main>
-
-</div>
-
-<footer>
-    <p>© 2026 My Portfolio</p>
-</footer>
-
-</body>
-</html>
-
-</body>
-</html>
+</main>
