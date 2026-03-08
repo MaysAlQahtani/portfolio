@@ -40,8 +40,8 @@ header h1 {
     font-size: 1.5rem;
 }
 
-/* تنسيق موحد لجميع الأزرار والروابط في الموقع */
-nav a, .jump-links a, .sidebar a, .btn-style {
+/* تنسيق موحد لجميع الأزرار والروابط في الهيدر والسايد بار */
+nav a, .jump-links a, .sidebar a {
     text-decoration: none;
     color: var(--maroon) !important;
     background-color: var(--pastel-blue);
@@ -55,7 +55,7 @@ nav a, .jump-links a, .sidebar a, .btn-style {
     border: none;
 }
 
-nav a:hover, .jump-links a:hover, .sidebar a:hover, .btn-style:hover {
+nav a:hover, .jump-links a:hover, .sidebar a:hover {
     background-color: white;
     color: var(--maroon) !important;
     transform: translateY(-2px);
@@ -74,11 +74,6 @@ nav a:hover, .jump-links a:hover, .sidebar a:hover, .btn-style:hover {
     padding: 30px 20px;
     text-align: center;
     min-height: 100vh;
-}
-
-.sidebar h3 {
-    margin-top: 20px;
-    color: var(--maroon);
 }
 
 .profile {
@@ -105,6 +100,39 @@ nav a:hover, .jump-links a:hover, .sidebar a:hover, .btn-style:hover {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
+/* تنسيق الجداول المحدث */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 15px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--pastel-blue);
+}
+
+th {
+    background-color: var(--maroon);
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f4f8fb;
+}
+
+tbody tr:hover {
+    background-color: var(--pastel-blue);
+    transition: 0.3s;
+}
+
 .section-header {
     display: flex;
     align-items: center;
@@ -112,30 +140,6 @@ nav a:hover, .jump-links a:hover, .sidebar a:hover, .btn-style:hover {
     margin-bottom: 15px;
     border-bottom: 2px solid var(--pastel-blue);
     padding-bottom: 10px;
-}
-
-.section-icon {
-    font-size: 1.5em;
-    margin-right: 12px;
-}
-
-.card-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.card-section li {
-    margin-bottom: 10px;
-    padding: 10px 15px 10px 40px;
-    position: relative;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-}
-
-.card-section li::before {
-    content: '✨';
-    position: absolute;
-    left: 15px;
 }
 
 footer {
