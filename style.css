@@ -40,38 +40,26 @@ header h1 {
     font-size: 1.5rem;
 }
 
-nav a {
-    color: black !important;
-    margin: 0 10px;
+/* تنسيق موحد لجميع الأزرار والروابط في الموقع */
+nav a, .jump-links a, .sidebar a, .btn-style {
     text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: white !important;
-}
-
-.jump-links {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.jump-links a {
-    text-decoration: none;
-    color: var(--maroon);
+    color: var(--maroon) !important;
     background-color: var(--pastel-blue);
-    padding: 6px 16px;
+    padding: 8px 18px;
     border-radius: 20px;
     font-weight: bold;
     font-size: 0.85em;
     transition: 0.3s ease;
+    display: inline-block;
+    margin: 5px;
+    border: none;
 }
 
-.jump-links a:hover {
+nav a:hover, .jump-links a:hover, .sidebar a:hover, .btn-style:hover {
     background-color: white;
+    color: var(--maroon) !important;
     transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .container {
@@ -88,16 +76,9 @@ nav a:hover {
     min-height: 100vh;
 }
 
-.sidebar a {
-    color: black !important;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: 5px;
-}
-
-.sidebar a:hover {
-    text-decoration: underline;
+.sidebar h3 {
+    margin-top: 20px;
+    color: var(--maroon);
 }
 
 .profile {
@@ -138,7 +119,11 @@ nav a:hover {
     margin-right: 12px;
 }
 
-.card-section ul { list-style-type: none; padding: 0; }
+.card-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
 .card-section li {
     margin-bottom: 10px;
     padding: 10px 15px 10px 40px;
@@ -146,7 +131,12 @@ nav a:hover {
     background-color: #f9f9f9;
     border-radius: 8px;
 }
-.card-section li::before { content: '✨'; position: absolute; left: 15px; }
+
+.card-section li::before {
+    content: '✨';
+    position: absolute;
+    left: 15px;
+}
 
 footer {
     text-align: center;
@@ -157,5 +147,5 @@ footer {
 
 @media(max-width:768px) {
     .header-container, .container { flex-direction: column; }
-    .sidebar { width: 100%; min-height: auto; }
+    .sidebar { width: 100%; min-height: auto; padding-bottom: 20px; }
 }
