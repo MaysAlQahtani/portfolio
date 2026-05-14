@@ -167,3 +167,138 @@ footer {
         overflow-x: auto;
     }
 }
+
+nav a.active {
+    background-color: var(--white);
+    color: var(--maroon) !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--maroon);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.project-content {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.project-preview {
+    flex: 0 0 120px;
+    text-align: center;
+}
+
+.preview-icon {
+    font-size: 80px;
+    background: var(--pastel-blue);
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+.project-card:hover .preview-icon {
+    transform: scale(1.05);
+}
+
+.project-details {
+    flex: 1;
+    min-width: 250px;
+}
+
+.project-details ul {
+    margin: 10px 0 15px 20px;
+}
+
+.project-details li {
+    margin: 5px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background: var(--maroon);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5e1524;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(122, 28, 46, 0.3);
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.tech-tag {
+    background: var(--pastel-blue);
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--maroon);
+}
+
+.section-icon {
+    font-size: 1.8rem;
+    margin-right: 12px;
+}
+
+@media (max-width: 768px) {
+    .project-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .project-details ul {
+        text-align: left;
+    }
+    
+    .project-badge {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-container {
+        flex-direction: column;
+    }
+    
+    .btn-search, .btn-random {
+        width: 100%;
+    }
+}
