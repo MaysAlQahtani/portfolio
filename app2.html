@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Explorer - Mays Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .search-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--maroon);
+        }
+        
+        .btn-search {
+            background: var(--maroon);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .btn-random {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--maroon);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error-message {
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .country-card {
+            background: #f8fafc;
+            border-radius: 20px;
+            overflow: hidden;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        .country-header {
+            background: linear-gradient(135deg, var(--maroon), #5e1524);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .country-flag {
+            font-size: 80px;
+            margin-bottom: 10px;
+        }
+        
+        .country-name {
+            font-size: 2rem;
+            margin: 10px 0;
+        }
+        
+        .country-info {
+            padding: 25px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: var(--maroon);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+        
+        .info-value {
+            font-size: 1.1rem;
+        }
+        
+        .languages-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .language-tag {
+            background: var(--pastel-blue);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        .borders-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .border-tag {
+            background: #e2e8f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--maroon);
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>🌍 Country Explorer</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="contact.html">Contact</a>
+            <a href="myworks.html">My Works</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <aside class="sidebar">
+        <img src="images/profile.jpg" class="profile" alt="Profile Picture">
+        <h3>App Info</h3>
+        <a href="#">REST Countries API</a>
+        <a href="#">Fetch API</a>
+        <a href="#">Live Data</a>
+        <h3>Navigation</h3>
+        <a href="myworks.html">← Back to My Works</a>
+    </aside>
+
+    <main class="content">
+        <section class="card-section">
+            <div class="section-header">
+                <span class="section-icon">🌍</span>
+                <h2>Explore Countries</h2>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="countryInput" class="search-input" placeholder="Enter country name (e.g., Saudi Arabia, Egypt, France)" onkeypress="if(event.key==='Enter') searchCountry()">
+                <button class="btn-search" onclick="searchCountry()">🔍 Search</button>
+                <button class="btn-random" onclick="randomCountry()">🎲 Random Country</button>
+            </div>
+            
+            <div id="resultContainer">
+                <!-- Results will appear here -->
+                <div class="country-card" style="text-align: center; padding: 40px; background: #f8fafc;">
+                    <span style="font-size: 50px;">🌎</span>
+                    <h3>Welcome to Country Explorer!</h3>
+                    <p>Search for any country above to see detailed information including capital, population, flag, and more.</p>
+                    <p style="margin-top: 15px; color: #64748b;">Try: Saudi Arabia, Japan, France, Brazil</p>
+                </div>
+            </div>
+            
+            <a href="myworks.html" class="back-link">← Back to My Works</a>
+        </section>
+    </main>
+</div>
+
+<footer>
+    <p>© 2026 Mays AlQahtani - Country Explorer | Powered by REST Countries API</p>
+</footer>
+
+<script>
+    const API_BASE = 'https://restcountries.com/v3.1';
+    
+    async function searchCountry() {
+        const input = document.getElementById('countryInput');
+        const countryName = input.value.trim();
+        
+        if (!countryName) {
+            alert('Please enter a country name!');
+            return;
+        }
+        
+        showLoading();
+        
+        try {
+            const response = await fetch(`${API_BASE}/name/${encodeURIComponent(countryName)}?fullText=false`);
+            
+            if (!response.ok) {
+                if (response.status === 404) {
+                    showError(`No country found with name "${countryName}". Please check spelling and try again.`);
+                } else {
+                    showError('Something went wrong. Please try again later.');
+                }
+                return;
+            }
+            
+            const data = await response.json();
+            if (data && data.length > 0) {
+                displayCountry(data[0]);
+            } else {
+                showError(`No results found for "${countryName}"`);
+            }
+        } catch (error) {
+            console.error('Error fetching country data:', error);
+            showError('Network error. Please check your connection and try again.');
+        }
+    }
+    
+    async function randomCountry() {
+        showLoading();
+        
+        try {
+            // Get a list of all countries
+            const response = await fetch(`${API_BASE}/all?fields=name,cca3`);
+            const allCountries = await response.json();
+            
+            // Pick a random country
+            const randomIndex = Math.floor(Math.random() * allCountries.length);
+            const randomCountryCode = allCountries[randomIndex].cca3;
+            
+            // Fetch details for the random country
+            const detailResponse = await fetch(`${API_BASE}/alpha/${randomCountryCode}`);
+            const countryData = await detailResponse.json();
+            
+            displayCountry(countryData);
+            
+            // Update input field
+            document.getElementById('countryInput').value = countryData.name.common;
+            
+        } catch (error) {
+            console.error('Error fetching random country:', error);
+            showError('Could not fetch a random country. Please try again.');
+        }
+    }
+    
+    function displayCountry(country) {
+        const container = document.getElementById('resultContainer');
+        
+        // Get capital (handling multiple capitals)
+        const capital = country.capital ? country.capital.join(', ') : 'N/A';
+        
+        // Get currencies
+        let currencies = 'N/A';
+        if (country.currencies) {
+            currencies = Object.values(country.currencies).map(c => `${c.name} (${c.symbol || ''})`).join(', ');
+        }
+        
+        // Get languages
+        let languages = [];
+        if (country.languages) {
+            languages = Object.values(country.languages);
+        }
+        
+        // Get borders
+        let borders = country.borders || [];
+        
+        // Get population formatted
+        const population = country.population ? new Intl.NumberFormat().format(country.population) : 'N/A';
+        
+        // Get area formatted
+        const area = country.area ? new Intl.NumberFormat().format(Math.round(country.area)) + ' km²' : 'N/A';
+        
+        container.innerHTML = `
+            <div class="country-card">
+                <div class="country-header">
+                    <div class="country-flag">${country.flag || '🏳️'}</div>
+                    <h2 class="country-name">${country.name.common}</h2>
+                    ${country.name.official !== country.name.common ? `<p>${country.name.official}</p>` : ''}
+                </div>
+                <div class="country-info">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">🏙️ Capital</span>
+                            <span class="info-value">${capital}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">👥 Population</span>
+                            <span class="info-value">${population}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">🗺️ Area</span>
+                            <span class="info-value">${area}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">🌐 Region</span>
+                            <span class="info-value">${country.region || 'N/A'} ${country.subregion ? `(${country.subregion})` : ''}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">💰 Currency</span>
+                            <span class="info-value">${currencies}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">📞 Calling Code</span>
+                            <span class="info-value">${country.idd?.root || ''}${country.idd?.suffixes?.[0] || 'N/A'}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item" style="margin-bottom: 15px;">
+                        <span class="info-label">🗣️ Languages</span>
+                        <div class="languages-list">
+                            ${languages.map(lang => `<span class="language-tag">${lang}</span>`).join('') || '<span>N/A</span>'}
+                        </div>
+                    </div>
+                    
+                    ${borders.length > 0 ? `
+                    <div class="info-item">
+                        <span class="info-label">🛂 Borders</span>
+                        <div class="borders-list">
+                            ${borders.map(border => `<span class="border-tag">${border}</span>`).join('')}
+                        </div>
+                    </div>
+                    ` : ''}
+                    
+                    ${country.maps?.googleMaps ? `
+                    <div class="info-item" style="text-align: center; margin-top: 15px;">
+                        <a href="${country.maps.googleMaps}" target="_blank" style="color: var(--maroon);">📍 View on Google Maps →</a>
+                    </div>
+                    ` : ''}
+                </div>
+            </div>
+        `;
+    }
+    
+    function showLoading() {
+        const container = document.getElementById('resultContainer');
+        container.innerHTML = `
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Fetching country data... 🌍</p>
+            </div>
+        `;
+    }
+    
+    function showError(message) {
+        const container = document.getElementById('resultContainer');
+        container.innerHTML = `
+            <div class="error-message">
+                <span style="font-size: 40px;">😕</span>
+                <p style="margin-top: 10px;">${message}</p>
+            </div>
+        `;
+    }
+</script>
+
+</body>
+</html>
