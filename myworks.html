@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Works - Mays Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>My Works</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="contact.html">Contact</a>
+            <a href="myworks.html" class="active">My Works</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <aside class="sidebar">
+        <img src="images/profile.jpg" class="profile" alt="Profile Picture">
+        <h3>My Projects</h3>
+        <a href="#app1">To-Do List App</a>
+        <a href="#app2">Country Explorer</a>
+        <h3>Social</h3>
+        <a href="https://x.com/maqh41" target="_blank">X</a>
+        <a href="https://www.linkedin.com/in/mays-alqahtani-492a261a1/" target="_blank">LinkedIn</a>
+    </aside>
+
+    <main class="content">
+        <section class="card-section">
+            <div class="section-header">
+                <span class="section-icon">🚀</span>
+                <h2>My Interactive Applications</h2>
+            </div>
+            <p class="about-text">Welcome to my works page! Here you'll find two JavaScript applications I built for my portfolio. One runs entirely in the browser, and the other fetches live data from a public API.</p>
+        </section>
+
+        <!-- App 1 Card -->
+        <section id="app1" class="card-section project-card">
+            <div class="project-badge">App 1</div>
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>To-Do List Manager</h2>
+            </div>
+            <div class="project-content">
+                <div class="project-preview">
+                    <div class="preview-icon">📝</div>
+                </div>
+                <div class="project-details">
+                    <p><strong>Type:</strong> Pure JavaScript App (No External APIs)</p>
+                    <p><strong>Description:</strong> A fully functional to-do list application that allows you to add, complete, and delete tasks. Your tasks are saved locally in your browser so they persist even after you close the page!</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Add new tasks with a title</li>
+                        <li>Mark tasks as complete/incomplete</li>
+                        <li>Delete individual tasks</li>
+                        <li>Clear all completed tasks at once</li>
+                        <li>Tasks saved automatically with localStorage</li>
+                        <li>Task counter showing remaining tasks</li>
+                    </ul>
+                    <a href="app1.html" class="btn btn-primary">🚀 Launch App 1 →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- App 2 Card -->
+        <section id="app2" class="card-section project-card">
+            <div class="project-badge">App 2</div>
+            <div class="section-header">
+                <span class="section-icon">🌍</span>
+                <h2>Country Explorer</h2>
+            </div>
+            <div class="project-content">
+                <div class="project-preview">
+                    <div class="preview-icon">🗺️</div>
+                </div>
+                <div class="project-details">
+                    <p><strong>Type:</strong> API-Powered App (REST Countries API)</p>
+                    <p><strong>Description:</strong> Explore countries from around the world! Search for any country to see detailed information including capital, population, region, and flag.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Search for any country by name</li>
+                        <li>View country flag, capital, population, region</li>
+                        <li>See country borders and languages</li>
+                        <li>Loading states while fetching data</li>
+                        <li>Error handling for invalid searches</li>
+                        <li>Get random country suggestion</li>
+                    </ul>
+                    <a href="app2.html" class="btn btn-primary">🚀 Launch App 2 →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Technologies Used</h2>
+            </div>
+            <div class="tech-stack">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript (ES6+)</span>
+                <span class="tech-tag">Fetch API</span>
+                <span class="tech-tag">localStorage</span>
+                <span class="tech-tag">REST Countries API</span>
+            </div>
+        </section>
+    </main>
+</div>
+
+<footer>
+    <p>© 2026 Mays AlQahtani - CPIT 405 Portfolio</p>
+</footer>
+
+</body>
+</html>
