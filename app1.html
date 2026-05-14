@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List App - Mays Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .todo-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .todo-input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .todo-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        
+        .todo-input:focus {
+            outline: none;
+            border-color: var(--maroon);
+        }
+        
+        .btn-add {
+            background: var(--maroon);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+        
+        .btn-add:hover {
+            background: #5e1524;
+            transform: scale(1.02);
+        }
+        
+        .todo-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .task-count {
+            background: var(--pastel-blue);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: var(--maroon);
+        }
+        
+        .btn-clear {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        
+        .btn-clear:hover {
+            background: #dc2626;
+        }
+        
+        .todo-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .todo-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8fafc;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            transition: all 0.2s;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .todo-item:hover {
+            transform: translateX(5px);
+            background: #f1f5f9;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .todo-check {
+            margin-right: 12px;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            accent-color: var(--maroon);
+        }
+        
+        .todo-text {
+            flex: 1;
+            font-size: 1rem;
+            word-break: break-word;
+        }
+        
+        .todo-text.completed {
+            text-decoration: line-through;
+            color: #94a3b8;
+        }
+        
+        .todo-date {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            margin-right: 10px;
+        }
+        
+        .delete-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #ef4444;
+            padding: 5px 10px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        
+        .delete-btn:hover {
+            background: #fee2e2;
+        }
+        
+        .empty-message {
+            text-align: center;
+            color: #94a3b8;
+            padding: 40px;
+            font-style: italic;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--maroon);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>📝 To-Do List App</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="contact.html">Contact</a>
+            <a href="myworks.html">My Works</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <aside class="sidebar">
+        <img src="images/profile.jpg" class="profile" alt="Profile Picture">
+        <h3>App Info</h3>
+        <a href="#">Pure JavaScript</a>
+        <a href="#">localStorage</a>
+        <a href="#">No APIs Used</a>
+        <h3>Navigation</h3>
+        <a href="myworks.html">← Back to My Works</a>
+    </aside>
+
+    <main class="content">
+        <section class="card-section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Task Manager</h2>
+            </div>
+            
+            <div class="todo-container">
+                <div class="todo-input-group">
+                    <input type="text" id="taskInput" class="todo-input" placeholder="What do you need to do?" onkeypress="if(event.key==='Enter') addTask()">
+                    <button class="btn-add" onclick="addTask()">+ Add Task</button>
+                </div>
+                
+                <div class="todo-stats">
+                    <span class="task-count" id="taskCount">0 tasks remaining</span>
+                    <button class="btn-clear" onclick="clearCompleted()">Clear Completed</button>
+                </div>
+                
+                <ul class="todo-list" id="todoList">
+                    <li class="empty-message">✨ Add your first task above! ✨</li>
+                </ul>
+            </div>
+            
+            <a href="myworks.html" class="back-link">← Back to My Works</a>
+        </section>
+    </main>
+</div>
+
+<footer>
+    <p>© 2026 Mays AlQahtani - To-Do List App | No External APIs</p>
+</footer>
+
+<script>
+    // Load tasks from localStorage
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    
+    // Save tasks to localStorage
+    function saveTasks() {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+    
+    // Add a new task
+    function addTask() {
+        const input = document.getElementById('taskInput');
+        const taskText = input.value.trim();
+        
+        if (taskText === '') {
+            alert('Please enter a task!');
+            return;
+        }
+        
+        const task = {
+            id: Date.now(),
+            text: taskText,
+            completed: false,
+            createdAt: new Date().toLocaleDateString()
+        };
+        
+        tasks.push(task);
+        saveTasks();
+        input.value = '';
+        renderTasks();
+    }
+    
+    // Toggle task completion
+    function toggleTask(id) {
+        const task = tasks.find(t => t.id === id);
+        if (task) {
+            task.completed = !task.completed;
+            saveTasks();
+            renderTasks();
+        }
+    }
+    
+    // Delete a task
+    function deleteTask(id) {
+        tasks = tasks.filter(t => t.id !== id);
+        saveTasks();
+        renderTasks();
+    }
+    
+    // Clear all completed tasks
+    function clearCompleted() {
+        tasks = tasks.filter(t => !t.completed);
+        saveTasks();
+        renderTasks();
+    }
+    
+    // Render tasks to the DOM
+    function renderTasks() {
+        const todoList = document.getElementById('todoList');
+        const taskCountSpan = document.getElementById('taskCount');
+        
+        const remainingTasks = tasks.filter(t => !t.completed).length;
+        taskCountSpan.textContent = `${remainingTasks} task${remainingTasks !== 1 ? 's' : ''} remaining`;
+        
+        if (tasks.length === 0) {
+            todoList.innerHTML = '<li class="empty-message">🎉 All done! Add a new task 🎉</li>';
+            return;
+        }
+        
+        todoList.innerHTML = tasks.map(task => `
+            <li class="todo-item" data-id="${task.id}">
+                <input type="checkbox" class="todo-check" ${task.completed ? 'checked' : ''} onchange="toggleTask(${task.id})">
+                <span class="todo-text ${task.completed ? 'completed' : ''}">${escapeHtml(task.text)}</span>
+                <span class="todo-date">${task.createdAt}</span>
+                <button class="delete-btn" onclick="deleteTask(${task.id})">🗑️</button>
+            </li>
+        `).join('');
+    }
+    
+    // Helper function to escape HTML
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    
+    // Initial render
+    renderTasks();
+</script>
+
+</body>
+</html>
